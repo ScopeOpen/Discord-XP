@@ -7,7 +7,7 @@ Simply ask on the issues page and I'll assist you as quick as I can
 
 # To Do
 
-<img src = "https://img.shields.io/badge/Completion-%2575-orange?style=flat-square"><br>```Bypass Python Lib to login with user token```
+<img src = "https://img.shields.io/badge/Completion-%2575-orange?style=flat-square"><br>```Bypass Python Lib```
 
 <img src = "https://img.shields.io/badge/Completion-%250-critical?style=flat-square"><br>```Randomized Message Timing```
 
