@@ -19,7 +19,7 @@ Simply ask on the issues page and I'll assist you as quick as I can
 
 <img src = "https://img.shields.io/badge/Completion-%250-critical?style=flat-square"><br>```Multiple  meme/photos```
 
-<img src = "https://img.shields.io/badge/Completion-%250-important?style=flat-square"><br>```Make a UI ```
+<img src = "https://img.shields.io/badge/Completion-%250-critical?style=flat-square"><br>```Make a UI ```
 
 # Future
 ```
