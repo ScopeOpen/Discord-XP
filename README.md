@@ -5,9 +5,12 @@ A great tool to help those who love getting xp to be on the top of all level lea
 # Help & Support
 Simply ask on the issues page and I'll assist you as quick as I can 
 
+# Thanks To
+**DisScum by Merubokkusu.** An amazing API Wrapper that I will be using! - [DisCum](https://github.com/Merubokkusu/Discord-S.C.U.M)
+
 # To Do
 
-<img src = "https://img.shields.io/badge/Completion-%2575-orange?style=flat-square"><br>```Bypass Python Lib```
+<img src = "https://img.shields.io/badge/Completion-%25100-success?style=flat-square"><br>```Bypass Python Lib```
 
 <img src = "https://img.shields.io/badge/Completion-%250-critical?style=flat-square"><br>```Randomized Message Timing```
 
