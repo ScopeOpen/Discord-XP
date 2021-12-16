@@ -7,6 +7,7 @@ import cv2
 import glob
 import re
 import random
+import json
 
 # CMD PROMPT TOP WINDOW
 ctypes.windll.kernel32.SetConsoleTitleW(f"Discord XP [{platform.system()}]")
@@ -15,6 +16,12 @@ ctypes.windll.kernel32.SetConsoleTitleW(f"Discord XP [{platform.system()}]")
 sent = 0
 os = os.system
 b = Style.BRIGHT
+
+# GETTING ACC TOKEN
+with open('config.json') as f:
+   data = json.load(f)
+    
+print(data["userinfo"]["token"]) # JUST FOR TESTING PHASE!
 
 # MEME STUFF
 pathfiles = 'path/to/files/'
@@ -31,7 +38,7 @@ color3 = b+Fore.GREEN
 __version__ = 1
 
 # TIMES WHERE MESSAGES WILL BE SENT
-xptime = ['TIME1', 'TIME2']
+SendMessage = round(random.uniform(5, 10), 2) # EDIT THIS!
 
 # SHOWING ALL FILES IN /memes/ DIRECTORY
 memes = [cv2.imread(file) for file in files]
@@ -112,3 +119,9 @@ if __name__ == '__main__':
 
 
  
+import json
+ 
+
+
+
+
