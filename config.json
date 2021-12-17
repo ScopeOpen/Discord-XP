@@ -1,5 +1,9 @@
 {
 	"userinfo": {
         "token": "TOKEN GOES HERE!"
+    },
+    "serverinfo": {
+        "serverid": "YOUR SERVER ID GOES HERE"
     }
 }
+

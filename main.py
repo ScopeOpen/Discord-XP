@@ -21,7 +21,6 @@ b = Style.BRIGHT
 with open('config.json') as f:
    data = json.load(f)
     
-print(data["userinfo"]["token"]) # JUST FOR TESTING PHASE!
 
 # MEME STUFF
 pathfiles = 'path/to/files/'
@@ -38,7 +37,7 @@ color3 = b+Fore.GREEN
 __version__ = 1
 
 # TIMES WHERE MESSAGES WILL BE SENT
-SendMessage = round(random.uniform(5, 10), 2) # EDIT THIS!
+SendMessageTime = round(random.uniform(5, 10), 2) # EDIT THIS!
 
 # SHOWING ALL FILES IN /memes/ DIRECTORY
 memes = [cv2.imread(file) for file in files]
@@ -74,6 +73,13 @@ if os.path.isfile(memechannelFile):
     MemeContents = lines3.splitlines()
     OpenMeme.close()
 
+# SERVER ID READING
+ServerID = data["serverinfo"]["serverid"]
+print(ServerID)
+
+# USER TOKEN
+UserToken = data["userinfo"]["token"]
+print(UserToken)
 
 # ALL CONTENTS OF TXT FILES
 phrases = PhrasesContents
