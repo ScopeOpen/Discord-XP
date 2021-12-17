@@ -92,9 +92,9 @@ print(ChannelContents)
 print(MemeContents)
 
 
-def main():
+# split
 
-    FirstText = f"""
+FirstText = f"""
         
 ██████╗ ██╗███████╗ ██████╗ ██████╗ ██████╗ ██████╗      ██╗  ██╗██████╗ 
 ██╔══██╗██║██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔══██╗     ╚██╗██╔╝██╔══██╗
@@ -105,19 +105,27 @@ def main():
                                                                                   
 {Fore.WHITE}                           Made By Scope
 
-    {Fore.RESET}"""
+{Fore.RESET}"""
 
-    Step1 = FirstText.replace("╝", f"{color1}╝")
-    Step2 = Step1.replace("═", f"{color1}═")
-    Step3 = Step2.replace("╚", f"{color1}╚")
-    Step4 = Step3.replace("╗", f"{color1}╗")
-    Step5 = Step4.replace("║", f"{color1}║")
-    Step6 = Step5.replace("╔", f"{color1}╔")
-    LastOutput = Step6.replace("█", f"{color2}█")
+Step1 = FirstText.replace("╝", f"{color1}╝")
+Step2 = Step1.replace("═", f"{color1}═")
+Step3 = Step2.replace("╚", f"{color1}╚")
+Step4 = Step3.replace("╗", f"{color1}╗")
+Step5 = Step4.replace("║", f"{color1}║")
+Step6 = Step5.replace("╔", f"{color1}╔")
+LastOutput = Step6.replace("█", f"{color2}█")
 
-    print(LastOutput)
+print(LastOutput)
+
+
+# SPLIT
+
+def main():
+
+    bot = discum.Client(token=UserToken)
+    bot.checkToken(UserToken)
+    bot.sendMessage("Testing","Testing")
     
-
 
 
 if __name__ == '__main__':
