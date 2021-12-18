@@ -8,9 +8,42 @@ import glob
 import re
 import random
 import json
-
+import reprlib
 # CMD PROMPT TOP WINDOW
 ctypes.windll.kernel32.SetConsoleTitleW(f"Discord XP [{platform.system()}]")
+
+# EDIT THIS ↓
+
+phrases_Content = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+]
+
+channel_Content = [
+    '1',
+    '2',
+    '3',
+    '4',
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+# EDIT THIS ↑
 
 # RANDOM STUFF
 sent = 0
@@ -21,7 +54,7 @@ b = Style.BRIGHT
 with open('config.json') as f:
    data = json.load(f)
     
-
+    
 # MEME STUFF
 pathfiles = 'path/to/files/'
 ext = ['png', 'jpg', 'gif', 'mp4']
@@ -58,7 +91,7 @@ if os.path.isfile(phrasesFile):
     lines1 = OpenPhrases.read()
     PhrasesContents = lines1.splitlines()
     OpenPhrases.close()
-
+ 
 # ALL CHANNELS TXT FILE READING
 if os.path.isfile(channelsFile):
     OpenChannel = open(channelsFile, "r")
@@ -73,9 +106,6 @@ if os.path.isfile(memechannelFile):
     MemeContents = lines3.splitlines()
     OpenMeme.close()
 
-# SERVER ID READING
-ServerID = data["serverinfo"]["serverid"]
-print(ServerID)
 
 # USER TOKEN
 UserToken = data["userinfo"]["token"]
@@ -84,12 +114,22 @@ print(UserToken)
 # ALL CONTENTS OF TXT FILES
 phrases = PhrasesContents
 memeChannel = MemeContents
-phrases = PhrasesContents
+channels = ChannelContents
+
+# RANDOM CHOICE
+
+
+fixed1 = ", ".join( repr(e) for e in phrases)
+fixed2 = [fixed1]
+fixed3 = random.choice(fixed2)
+print(fixed3)
+
+
 
 # JUST TESTING IF READING FILES WORKS
-print(PhrasesContents)
-print(ChannelContents)
-print(MemeContents)
+print(phrases)
+print(memeChannel)
+print(channels)
 
 
 # split
@@ -120,17 +160,19 @@ print(LastOutput)
 
 # SPLIT
 
-def main():
 
-    bot = discum.Client(token=UserToken)
-    bot.checkToken(UserToken)
-    bot.sendMessage("Testing","Testing")
+
     
+test = "3"
+test5 = "450"
+test2 = [phrases]
 
+    
+bot = discum.Client(token=UserToken)
 
-if __name__ == '__main__':
-    main()
-
+while True:
+   bot.sendMessage(random.choice(channel_Content),random.choice(phrases_Content))
+    
 
 
  

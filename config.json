@@ -1,9 +1,12 @@
 {
 	"userinfo": {
-        "token": "TOKEN GOES HERE!"
-    },
+        "token": ""
+    }, 
     "serverinfo": {
-        "serverid": "YOUR SERVER ID GOES HERE"
+        "general": "",
+        "offtopic": "",
+        "memes": "",
+        "other": ""
     }
 }
 
