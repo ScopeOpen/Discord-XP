@@ -158,6 +158,30 @@ print(LastOutput)
 
 
 bot = discum.Client(token=UserToken)
+TFileLocation = "memes/" + 'lol.png'
+bot.sendFile(data["serverinfo"]["memes"],TFileLocation,False)
+
+
+
+def getListOfFiles(dirName):
+    # create a list of file and sub directories 
+    # names in the given directory 
+    listOfFile = os.listdir(dirName)
+    allFiles = list()
+    for entry in listOfFile:
+        fullPath = os.path.join(dirName, entry)
+        if os.path.isdir(fullPath):
+            allFiles = allFiles + getListOfFiles(fullPath)
+        else:
+            allFiles.append(fullPath)
+                
+    return allFiles        
+
+    
+dirName = 'memes/';
+listOfFiles = getListOfFiles(dirName)
+for elem in listOfFiles:
+    print(elem)  
 
 
 TTTime = 0
