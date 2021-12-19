@@ -9,7 +9,12 @@ import re
 import random
 import json
 import reprlib
+import pause
 # CMD PROMPT TOP WINDOW
+TWordsSent = 0
+TImagesSent = 0
+WordsSent = 0
+ImagesSent = 0
 ctypes.windll.kernel32.SetConsoleTitleW(f"Discord XP [{platform.system()}]")
 
 # EDIT THIS ↓
@@ -25,20 +30,25 @@ phrases_Content = [
 ]
 
 channel_Content = [
-    '1',
-    '2',
-    '3',
-    '4',
+    '',
 ]
 
 
 
 
+from skimage.io import imread_collection
 
+#your path 
+col_dir = 'memes/*.png'
 
+#creating a collection with the available images
+col = imread_collection(col_dir)
 
+lst_str = str(col)[1:-1] 
+lst_strr = [lst_str]
 
-
+print(lst_strr)
+print(col)
 
 
 
@@ -46,7 +56,7 @@ channel_Content = [
 # EDIT THIS ↑
 
 # RANDOM STUFF
-sent = 0
+
 os = os.system
 b = Style.BRIGHT
 
@@ -56,7 +66,7 @@ with open('config.json') as f:
     
     
 # MEME STUFF
-pathfiles = 'path/to/files/'
+pathfiles = '/memes/'
 ext = ['png', 'jpg', 'gif', 'mp4']
 files = []
 [files.extend(glob.glob(pathfiles + '*.' + e)) for e in ext]
@@ -70,11 +80,11 @@ color3 = b+Fore.GREEN
 __version__ = 1
 
 # TIMES WHERE MESSAGES WILL BE SENT
-SendMessageTime = round(random.uniform(5, 10), 2) # EDIT THIS!
+
 
 # SHOWING ALL FILES IN /memes/ DIRECTORY
 memes = [cv2.imread(file) for file in files]
-
+print(memes)
 # RESETING OS DEFINITION
 import os
 
@@ -118,20 +128,6 @@ channels = ChannelContents
 
 # RANDOM CHOICE
 
-
-fixed1 = ", ".join( repr(e) for e in phrases)
-fixed2 = [fixed1]
-fixed3 = random.choice(fixed2)
-print(fixed3)
-
-
-
-# JUST TESTING IF READING FILES WORKS
-print(phrases)
-print(memeChannel)
-print(channels)
-
-
 # split
 
 FirstText = f"""
@@ -161,21 +157,33 @@ print(LastOutput)
 # SPLIT
 
 
-
-    
-test = "3"
-test5 = "450"
-test2 = [phrases]
-
-    
 bot = discum.Client(token=UserToken)
 
+
+TTTime = 0
+
 while True:
-   bot.sendMessage(random.choice(channel_Content),random.choice(phrases_Content))
-    
+    TTTime = round(random.uniform(5, 10), 3)
+    pause.seconds(TTTime)
 
+    bot.sendFile(data["serverinfo"]["memes"],'memes\lol.png',False)
+    ImagesSent += 1
+    TImagesSent += 1
+    ctypes.windll.kernel32.SetConsoleTitleW(f"Sending Images... Images Sent [{TImagesSent}], Words Sent [{TWordsSent}] [May Be Inacurate Due To Ratelimiting.] -- [Pause Time [{TTTime}]]")
 
- 
+    while True:
+        TTTime = round(random.uniform(5, 10), 3)
+        pause.seconds(TTTime)
+
+        bot.sendMessage(random.choice(channel_Content),random.choice(phrases_Content))
+        WordsSent += 1
+        TWordsSent += 1
+        ctypes.windll.kernel32.SetConsoleTitleW(f"Sending Images... Images Sent [{TImagesSent}], Words Sent [{TWordsSent}] [May Be Inacurate Due To Ratelimiting.] -- [Pause Time [{TTTime}]]")
+        if WordsSent == round(random.uniform(5, 10), 1):
+            break
+        
+  
+
 
 
 
