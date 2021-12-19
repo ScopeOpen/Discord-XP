@@ -14,7 +14,7 @@ Simply ask on the issues page and I'll assist you as quick as I can
 
 <img src = "https://img.shields.io/badge/Completion-%250-critical?style=flat-square"><br>```Randomized Message Timing```
 
-<img src = "https://img.shields.io/badge/Completion-%250-critical?style=flat-square"><br>```Multiple Channel Support```
+<img src = "https://img.shields.io/badge/Completion-%25100-success?style=flat-square"><br>```Multiple Channel Support```
 
 <img src = "https://img.shields.io/badge/Completion-%250-critical?style=flat-square"><br>```Meme Channel Support```
 
