@@ -22,6 +22,6 @@ Install Git [StableGit](https://git-scm.com/downloads): Used to download this re
 
 `7` **Seventh:** Put all your images/gif in the memes folder and save it. Supported file types: `png/jpg/gif`
 
-`8` **Eigth:** Run the script `` to get all the required libraries for the script to work
+`8` **Eigth:** Run the script `pip install -r requirements.txt` to get all the required libraries for the script to work
 
 `9` **Ninth:** 
