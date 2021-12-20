@@ -6,6 +6,8 @@ Install Git [StableGit](https://git-scm.com/downloads): Used to download this re
 
 For easier access install the GitHub app [Github](https://desktop.github.com/): Not Required
 
+Once installed, if you used git open a cmd prompt and do "cd Discord-xp" if not find the directory where you downloaded it then cd into there
+
 `1` **First:** You will need your discord token to run this SelfBot/XP-Grinder. You can either do the traditional way [Get Your Discord Token!](https://www.youtube.com/watch?v=YEgFvgg7ZPI). Or use my script: [Get Your Discord Token (BY ME)](https://github.com/ScopeOpen/Get-Token)
 
 `2` **Second:** Once you have your discord token you need to input it in **brackets ""** of the token section of `config.json` like in the provided screenshot.
@@ -24,6 +26,6 @@ For easier access install the GitHub app [Github](https://desktop.github.com/): 
 
 `7` **Seventh:** Put all your images/gif in the memes folder and save it. Supported file types: `png/jpg/gif`
 
-`8` **Eigth:** Run the script `pip install -r requirements.txt` to get all the required libraries for the script to work
+`8` **Eigth:** Run the scripts `python -m pip install --upgrade pip` then `pip install -r requirements.txt` to get all the required libraries for the script to work
 
 `9` **Ninth:** 
