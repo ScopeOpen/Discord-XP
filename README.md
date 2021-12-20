@@ -16,7 +16,7 @@ Simply ask on the issues page and I'll assist you as quick as I can
 
 <img src = "https://img.shields.io/badge/Completion-%25100-success?style=flat-square"><br>```Multiple Channel Support```
 
-<img src = "hhttps://img.shields.io/badge/Completion-%25100-success?style=flat-square"><br>```Meme Channel Support```
+<img src = "https://img.shields.io/badge/Completion-%25100-success?style=flat-square"><br>```Meme Channel Support```
 
 <img src = "https://img.shields.io/badge/Completion-%25100-success?style=flat-square"><br>```Multiple phrases/sentences```
 
