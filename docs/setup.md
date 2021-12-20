@@ -28,4 +28,8 @@ Once installed, if you used git open a cmd prompt and do "cd Discord-xp" if not 
 
 `8` **Eigth:** Run the scripts `python -m pip install --upgrade pip` then `pip install -r requirements.txt` to get all the required libraries for the script to work
 
-`9` **Ninth:** 
+`9` **Ninth:** Once your cmd prompt is open run `python main.py` to start the script
+
+`10` **Tenth:** Always choose the 1,2,3 choices before starting the bot or it won't work.
+
+**All Support In Issues**
