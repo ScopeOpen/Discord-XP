@@ -132,10 +132,8 @@ def RunMessage():
 
     MessageFirst = data["messages"]["firstTime"]
     MessageSecond = data["messages"]["secondTime"]
-    ImagesFirst = data["images"]["firstTime"]
-    ImagesSecond = data["images"]["secondTime"]
     while True:
-        TTTime = round(random.uniform(5, 10), 3)
+        TTTime = round(random.uniform(MessageFirst,MessageSecond), 3)
         pause.seconds(TTTime)
         bot.sendFile(data["serverinfo"]["memes"],'memes/'+random.choice(images_Content),False)
         cls()
@@ -143,9 +141,10 @@ def RunMessage():
         TWordsSent += 1
         ctypes.windll.kernel32.SetConsoleTitleW(f"Sending Images... Images Sent [{ImagesSent}], Words Sent [{TWordsSent}] [May Be Inacurate Due To Ratelimiting.] -- [Pause Time [{TTTime}]]")
         print(f'{w}{color3}[{w}Discord-XP{color3}] Sent IMAGES{w}: {color3}[{w}{ImagesSent}{color3}]')
+        TTTime = 0
 
         while True:
-            TTTime = round(random.uniform(5, 10), 3)
+            TTTime = round(random.uniform(MessageFirst,MessageSecond), 3)
             pause.seconds(TTTime)
 
             bot.sendMessage(random.choice(channel_Content),random.choice(phrases_Content))
@@ -154,7 +153,8 @@ def RunMessage():
             TWordsSent += 1
             ctypes.windll.kernel32.SetConsoleTitleW(f"Sending Messages... Images Sent [{ImagesSent}], Words Sent [{TWordsSent}] [May Be Inacurate Due To Ratelimiting.] -- [Pause Time [{TTTime}]]")
             print(f'{w}{color3}[{w}Discord-XP{color3}] Sent WORDS{w}: {color3}[{w}{TWordsSent}{color3}]')
-            if WordsSent == random.randint(MessageFirst, MessageSecond):
+            TTTime = 0
+            if WordsSent == random.randint(10, 20):
                 WordsSent=0
                 break
 
