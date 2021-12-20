@@ -3,10 +3,16 @@
         "token": ""
     }, 
     "serverinfo": {
-        "general": "",
-        "offtopic": "",
         "memes": "",
-        "other": ""
+        "messagesSend": ""
+    },
+    "messages": {
+        "firstTime": 0,
+        "secondTime": 0
+    },
+    "images": {
+        "firstTime": 0,
+        "secondTime": 0
     }
 }
 

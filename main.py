@@ -36,22 +36,13 @@ else:
 
 
 
-
-
-# EDIT THIS ↓
-
 phrases_Content = []
 
-channel_Content = [
-    '750719915400626217',
-]
+channel_Content = []
 
 images_Content = []
 
 
-# EDIT THIS ↑
-
-# RANDOM STUFF
 
 os = os.system
 
@@ -108,6 +99,28 @@ elif theme == "gray":
         color2 = b+Fore.WHITE    
         color3 = b+Fore.LIGHTBLACK_EX
 
+def AppendChannels():
+    with open('channels.txt') as file:
+        while (line := file.readline().rstrip()):
+            channel_Content.append(line)
+    print(f"{w}{w}{color3}[{w}Discord-XP{color3}]{w}:{color3}[{w}UpdateChannels{color3}] Completed! Everything is up to date. ") 
+
+def ReturnHome():
+    
+    FFirstText = f"""
+{color1}┌─────────{color1}───────────────────────────{color3}────────────────────────────────────┐
+{color1}[{w}1{color1}]  {w}Return Home                                            Exit  {color3}[{w}2{color3}]
+{color1}└─────────{color1}───────────────────────────{color3}────────────────────────────────────┘
+    """
+    print(FFirstText)
+    option_choic2e=input(f"{w}{color3}[{w}Discord-XP{color3}] Choice{w}: ")
+    if option_choic2e == "1":
+        cls()
+        Menu()
+        Settings()
+    if option_choic2e == "2":
+        cls()
+        exit()
 
 def RunMessage():
     TTTime = 0
@@ -117,15 +130,19 @@ def RunMessage():
     ImagesSent = 0
     bot = discum.Client(token=UserToken)
 
+    MessageFirst = data["messages"]["firstTime"]
+    MessageSecond = data["messages"]["secondTime"]
+    ImagesFirst = data["images"]["firstTime"]
+    ImagesSecond = data["images"]["secondTime"]
     while True:
         TTTime = round(random.uniform(5, 10), 3)
         pause.seconds(TTTime)
         bot.sendFile(data["serverinfo"]["memes"],'memes/'+random.choice(images_Content),False)
         cls()
         ImagesSent += 1
-        TImagesSent += 1
-        ctypes.windll.kernel32.SetConsoleTitleW(f"Sending Images... Images Sent [{TImagesSent}], Words Sent [{TWordsSent}] [May Be Inacurate Due To Ratelimiting.] -- [Pause Time [{TTTime}]]")
-        print(f'{w}{color3}[{w}Discord-XP{color3}] Sent IMAGES{w}: {color3}[{w}{TImagesSent}{color3}]')
+        TWordsSent += 1
+        ctypes.windll.kernel32.SetConsoleTitleW(f"Sending Images... Images Sent [{ImagesSent}], Words Sent [{TWordsSent}] [May Be Inacurate Due To Ratelimiting.] -- [Pause Time [{TTTime}]]")
+        print(f'{w}{color3}[{w}Discord-XP{color3}] Sent IMAGES{w}: {color3}[{w}{ImagesSent}{color3}]')
 
         while True:
             TTTime = round(random.uniform(5, 10), 3)
@@ -135,13 +152,14 @@ def RunMessage():
             cls()
             WordsSent += 1
             TWordsSent += 1
-            ctypes.windll.kernel32.SetConsoleTitleW(f"Sending Messages... Images Sent [{TImagesSent}], Words Sent [{TWordsSent}] [May Be Inacurate Due To Ratelimiting.] -- [Pause Time [{TTTime}]]")
+            ctypes.windll.kernel32.SetConsoleTitleW(f"Sending Messages... Images Sent [{ImagesSent}], Words Sent [{TWordsSent}] [May Be Inacurate Due To Ratelimiting.] -- [Pause Time [{TTTime}]]")
             print(f'{w}{color3}[{w}Discord-XP{color3}] Sent WORDS{w}: {color3}[{w}{TWordsSent}{color3}]')
-            if WordsSent == round(random.uniform(50, 59), 3):
+            if WordsSent == random.randint(MessageFirst, MessageSecond):
                 WordsSent=0
                 break
-        
-    ""
+
+    
+
 
 
 def getPhrases():
@@ -166,7 +184,7 @@ def centerize(l:list,w:int)->str:
 
 
 def Menu():
-
+    print(data)
     FirstText = f"""
         
 ██████╗ ██╗███████╗ ██████╗ ██████╗ ██████╗ ██████╗      ██╗  ██╗██████╗ 
@@ -188,8 +206,9 @@ def Menu():
 def Settings():
     FFirstText = f"""
 {color1}┌─────────{color1}───────────────────────────{color3}────────────────────────────────────┐
-{color1}[{w}1{color1}]  {w}Update Images                                            Run Bot  {color3}[{w}3{color3}]
-{color1}[{w}2{color1}]  {w}Update Phrases                                              Exit  {color3}[{w}4{color3}]
+{color1}[{w}1{color1}]  {w}Update Images                                            Run Bot  {color3}[{w}4{color3}]
+{color1}[{w}2{color1}]  {w}Update Phrases                                                      {color3}]
+{color1}[{w}3{color1}]  {w}Update Channels                                             Exit  {color3}[{w}5{color3}]
 {color1}└─────────{color1}───────────────────────────{color3}────────────────────────────────────┘
     """
     print(FFirstText)
@@ -201,19 +220,28 @@ def Settings():
         cls()
         Menu()
         Settings()
-    if option_choice == "2":
+    elif option_choice == "2":
         getPhrases()
         pause.seconds(1)
         cls()
         Menu()
         Settings()
-    if option_choice == "3":
+    elif option_choice == "3":
+        AppendChannels()
+        pause.seconds(1)
+        cls()
+        Menu()
+        Settings()
+        print(channel_Content)
+    elif option_choice == "4":
         cls()
         RunMessage()
-    elif option_choice == "4":
+    elif option_choice == "5":
+        cls()
         exit()
+    
     else:
-        print('{w}{color3}[{w}Discord-XP{color3}] Invalid.')
+        print(f'{w}{color3}[{w}Discord-XP{color3}] Invalid.')
         pause.seconds(1)
         cls()
         Menu()
