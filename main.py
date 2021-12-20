@@ -10,12 +10,33 @@ import random
 import json
 import reprlib
 import pause
-# CMD PROMPT TOP WINDOW
-TWordsSent = 0
-TImagesSent = 0
-WordsSent = 0
-ImagesSent = 0
+b = Style.BRIGHT
 ctypes.windll.kernel32.SetConsoleTitleW(f"Discord XP [{platform.system()}]")
+
+w = b+Fore.WHITE
+
+with open('theme.json') as f:
+    t__ = json.load(f)
+theme = t__.get('theme')
+if theme == "blue":
+    c = Fore.CYAN
+elif theme == "red":
+    c = Fore.RED
+elif theme == "purple":
+    c = Fore.MAGENTA
+elif theme == "green":
+    c = Fore.GREEN
+elif theme == "gray":
+    c = Fore.BLACK
+else:
+    os.system("cls")
+    print(f"{w}Invalid {b+Fore.RED}theme.json{w}: {b+Fore.RED}{theme}\n{w}Please change to one of these:\n{b+Fore.CYAN}blue\n{b+Fore.RED}red\n{b+Fore.MAGENTA}purple\n{b+Fore.GREEN}green\n{b+Fore.BLACK}gray{Fore.RESET}")
+    e=input(f"press enter...")
+    os._exit(os.X_OK)
+
+
+
+
 
 # EDIT THIS ↓
 
@@ -33,24 +54,9 @@ channel_Content = [
     '',
 ]
 
-
-
-
-from skimage.io import imread_collection
-
-#your path 
-col_dir = 'memes/*.png'
-
-#creating a collection with the available images
-col = imread_collection(col_dir)
-
-lst_str = str(col)[1:-1] 
-lst_strr = [lst_str]
-
-print(lst_strr)
-print(col)
-
-
+images_Content = [
+    '',
+]
 
 
 # EDIT THIS ↑
@@ -58,7 +64,7 @@ print(col)
 # RANDOM STUFF
 
 os = os.system
-b = Style.BRIGHT
+
 
 # GETTING ACC TOKEN
 with open('config.json') as f:
@@ -72,100 +78,83 @@ files = []
 [files.extend(glob.glob(pathfiles + '*.' + e)) for e in ext]
 
 # COLOR DEFINITIONS
-color1 = b+Fore.GREEN
-color2 = b+Fore.WHITE
-color3 = b+Fore.GREEN
+
 
 # VERSION OF APPLICATION
 __version__ = 1
 
-# TIMES WHERE MESSAGES WILL BE SENT
-
-
-# SHOWING ALL FILES IN /memes/ DIRECTORY
 memes = [cv2.imread(file) for file in files]
 print(memes)
-# RESETING OS DEFINITION
 import os
 
-# ALL OUT TXT FILES
 phrasesFile = "phrases.txt"
 channelsFile = "channels.txt"
 memechannelFile = "memechannel.txt"
-
-# GETTING INFO OFF THOSE TXT FILES
-
-# PHRASES TXT FILE READING
-if os.path.isfile(phrasesFile):
-    OpenPhrases = open(phrasesFile, "r")
-    lines1 = OpenPhrases.read()
-    PhrasesContents = lines1.splitlines()
-    OpenPhrases.close()
- 
-# ALL CHANNELS TXT FILE READING
-if os.path.isfile(channelsFile):
-    OpenChannel = open(channelsFile, "r")
-    lines2 = OpenChannel.read()
-    ChannelContents = lines2.splitlines()
-    OpenChannel.close()
-
-# MEME CHANNEL TXT FILE READING
-if os.path.isfile(memechannelFile):
-    OpenMeme = open(memechannelFile, "r")
-    lines3 = OpenMeme.read()
-    MemeContents = lines3.splitlines()
-    OpenMeme.close()
-
-
-# USER TOKEN
 UserToken = data["userinfo"]["token"]
-print(UserToken)
 
-# ALL CONTENTS OF TXT FILES
-phrases = PhrasesContents
-memeChannel = MemeContents
-channels = ChannelContents
+def cls():
+    os.system("cls")
+cls()
 
-# RANDOM CHOICE
 
-# split
+if theme == "blue":
+        color1 = b+Fore.CYAN
+        color2 = b+Fore.WHITE
+        color3 = Fore.BLUE
+elif theme == "red":
+        color1 = b+Fore.RED
+        color2 = b+Fore.WHITE
+        color3 = Fore.LIGHTRED_EX
+elif theme == "purple":
+        color1 = b+Fore.MAGENTA
+        color2 = b+Fore.WHITE
+        color3 = Fore.LIGHTMAGENTA_EX
+elif theme == "green":
+        color1 = b+Fore.GREEN
+        color2 = b+Fore.WHITE
+        color3 = Fore.LIGHTGREEN_EX
+elif theme == "gray":
+        color1 = b+Fore.BLACK
+        color2 = b+Fore.WHITE    
+        color3 = Fore.LIGHTBLACK_EX
 
-FirstText = f"""
+
+def RunMessage():
+    TTTime = 0
+    TWordsSent = 0
+    TImagesSent = 0
+    WordsSent = 0
+    ImagesSent = 0
+    bot = discum.Client(token=UserToken)
+
+    while True:
+        TTTime = round(random.uniform(5, 10), 3)
+        pause.seconds(TTTime)
+        bot.sendFile(data["serverinfo"]["memes"],'memes\lol.png',False)
+        cls()
+        ImagesSent += 1
+        TImagesSent += 1
+        ctypes.windll.kernel32.SetConsoleTitleW(f"Sending Images... Images Sent [{TImagesSent}], Words Sent [{TWordsSent}] [May Be Inacurate Due To Ratelimiting.] -- [Pause Time [{TTTime}]]")
+        print(f'{w}{color3}[{w}Discord-XP{color3}] Sent IMAGES{w}: {color3}[{w}{TImagesSent}{color3}]')
+
+        while True:
+            TTTime = round(random.uniform(5, 10), 3)
+            pause.seconds(TTTime)
+
+            bot.sendMessage(random.choice(channel_Content),random.choice(phrases_Content))
+            cls()
+            WordsSent += 1
+            TWordsSent += 1
+            ctypes.windll.kernel32.SetConsoleTitleW(f"Sending Messages... Images Sent [{TImagesSent}], Words Sent [{TWordsSent}] [May Be Inacurate Due To Ratelimiting.] -- [Pause Time [{TTTime}]]")
+            print(f'{w}{color3}[{w}Discord-XP{color3}] Sent WORDS{w}: {color3}[{w}{TWordsSent}{color3}]')
+            if WordsSent == round(random.uniform(5, 10), 1):
+                WordsSent=0
+                break
         
-██████╗ ██╗███████╗ ██████╗ ██████╗ ██████╗ ██████╗      ██╗  ██╗██████╗ 
-██╔══██╗██║██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔══██╗     ╚██╗██╔╝██╔══██╗
-██║  ██║██║███████╗██║     ██║   ██║██████╔╝██║  ██║█████╗╚███╔╝ ██████╔╝
-██║  ██║██║╚════██║██║     ██║   ██║██╔══██╗██║  ██║╚════╝██╔██╗ ██╔═══╝ 
-██████╔╝██║███████║╚██████╗╚██████╔╝██║  ██║██████╔╝     ██╔╝ ██╗██║     
-╚═════╝ ╚═╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚════╝       ╚═╝  ╚═╝╚═╝ {color3}v{__version__}
-                                                                                  
-{Fore.WHITE}                           Made By Scope
-
-{Fore.RESET}"""
-
-Step1 = FirstText.replace("╝", f"{color1}╝")
-Step2 = Step1.replace("═", f"{color1}═")
-Step3 = Step2.replace("╚", f"{color1}╚")
-Step4 = Step3.replace("╗", f"{color1}╗")
-Step5 = Step4.replace("║", f"{color1}║")
-Step6 = Step5.replace("╔", f"{color1}╔")
-LastOutput = Step6.replace("█", f"{color2}█")
-
-print(LastOutput)
-
-
-# SPLIT
-
-
-bot = discum.Client(token=UserToken)
-TFileLocation = "memes/" + 'lol.png'
-bot.sendFile(data["serverinfo"]["memes"],TFileLocation,False)
-
+    
 
 
 def getListOfFiles(dirName):
-    # create a list of file and sub directories 
-    # names in the given directory 
     listOfFile = os.listdir(dirName)
     allFiles = list()
     for entry in listOfFile:
@@ -177,38 +166,67 @@ def getListOfFiles(dirName):
                 
     return allFiles        
 
-    
-dirName = 'memes/';
-listOfFiles = getListOfFiles(dirName)
-for elem in listOfFiles:
-    print(elem)  
+def getFiles(): 
 
+    my_file = open("images.txt", "w")
+    dirName = 'memes/';
+    listOfFiles = getListOfFiles(dirName)
+    for elem in listOfFiles:
+        my_file.writelines(elem + '\n')
+    print(f"{c}[{w}Discord-XP{c}] Completed! View in [{w}images.txt{c}]") 
 
-TTTime = 0
-
-while True:
-    TTTime = round(random.uniform(5, 10), 3)
-    pause.seconds(TTTime)
-
-    bot.sendFile(data["serverinfo"]["memes"],'memes\lol.png',False)
-    ImagesSent += 1
-    TImagesSent += 1
-    ctypes.windll.kernel32.SetConsoleTitleW(f"Sending Images... Images Sent [{TImagesSent}], Words Sent [{TWordsSent}] [May Be Inacurate Due To Ratelimiting.] -- [Pause Time [{TTTime}]]")
-
-    while True:
-        TTTime = round(random.uniform(5, 10), 3)
-        pause.seconds(TTTime)
-
-        bot.sendMessage(random.choice(channel_Content),random.choice(phrases_Content))
-        WordsSent += 1
-        TWordsSent += 1
-        ctypes.windll.kernel32.SetConsoleTitleW(f"Sending Images... Images Sent [{TImagesSent}], Words Sent [{TWordsSent}] [May Be Inacurate Due To Ratelimiting.] -- [Pause Time [{TTTime}]]")
-        if WordsSent == round(random.uniform(5, 10), 1):
-            break
-        
+def colored(r, g, b, text):
+    return "\033[38;2;{};{};{}m{} \033[38;2;255;255;255m".format(r, g, b, text)
   
+def centerize(l:list,w:int)->str:
+    padding =  ' '*(w//2)
+    parts = [ padding[0: (w-len(p))//2+1]+p for p in l]
+    return '\n'.join(parts)
 
 
 
+def Menu():
+
+    FirstText = f"""
+        
+██████╗ ██╗███████╗ ██████╗ ██████╗ ██████╗ ██████╗      ██╗  ██╗██████╗ 
+██╔══██╗██║██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔══██╗     ╚██╗██╔╝██╔══██╗
+██║  ██║██║███████╗██║     ██║   ██║██████╔╝██║  ██║█████╗╚███╔╝ ██████╔╝
+██║  ██║██║╚════██║██║     ██║   ██║██╔══██╗██║  ██║╚════╝██╔██╗ ██╔═══╝ 
+██████╔╝██║███████║╚██████╗╚██████╔╝██║  ██║██████╔╝     ██╔╝ ██╗██║     
+╚═════╝ ╚═╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚════╝       ╚═╝  ╚═╝╚═╝ {color3}v{__version__}                                                                               
+    {Fore.RESET}"""
+    Step1 = FirstText.replace("╝", f"{color1}╝")
+    Step2 = Step1.replace("═", f"{color1}═")
+    Step3 = Step2.replace("╚", f"{color1}╚")
+    Step4 = Step3.replace("╗", f"{color1}╗")
+    Step5 = Step4.replace("║", f"{color1}║")
+    Step6 = Step5.replace("╔", f"{color1}╔")
+    LastOutput = Step6.replace("█", f"{color2}█")
+    os_size = os.get_terminal_size().columns
+    print(centerize(LastOutput.splitlines(),int(os_size)))
+
+def Settings():
+    FFirstText = f"""
+{color1}┌─────────{color1}───────────────────────────{color3}────────────────────────────────────┐
+{color1}[{w}1{color1}]  {w}Get Images                                               Run Bot  {color3}[{w}2{color3}]
+{color1}└─────────{color1}───────────────────────────{color3}────────────────────────────────────┘
+    """
+    print(FFirstText)
+    option_choice=input(f"{w}{color3}[{w}Discord-XP{color3}] Choice{w}: ")
+
+    if option_choice == "1":
+        getFiles()
+    elif option_choice == "2":
+        cls()
+        RunMessage()
+    else:
+        print(f'{w}{color3}[{w}Discord-XP{color3}] Invalid Choice!')
+        pause.seconds(1)
+        cls()
+        Menu()
+        Settings()
 
 
+Menu()
+Settings()
