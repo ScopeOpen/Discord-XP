@@ -40,23 +40,13 @@ else:
 
 # EDIT THIS ↓
 
-phrases_Content = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-]
+phrases_Content = []
 
 channel_Content = [
-    '',
+    '750719915400626217',
 ]
 
-images_Content = [
-    '',
-]
+images_Content = []
 
 
 # EDIT THIS ↑
@@ -100,7 +90,7 @@ cls()
 if theme == "blue":
         color1 = b+Fore.CYAN
         color2 = b+Fore.WHITE
-        color3 = Fore.BLUE
+        color3 = b+Fore.BLUE
 elif theme == "red":
         color1 = b+Fore.RED
         color2 = b+Fore.WHITE
@@ -116,7 +106,7 @@ elif theme == "green":
 elif theme == "gray":
         color1 = b+Fore.BLACK
         color2 = b+Fore.WHITE    
-        color3 = Fore.LIGHTBLACK_EX
+        color3 = b+Fore.LIGHTBLACK_EX
 
 
 def RunMessage():
@@ -130,7 +120,7 @@ def RunMessage():
     while True:
         TTTime = round(random.uniform(5, 10), 3)
         pause.seconds(TTTime)
-        bot.sendFile(data["serverinfo"]["memes"],'memes\lol.png',False)
+        bot.sendFile(data["serverinfo"]["memes"],'memes/'+random.choice(images_Content),False)
         cls()
         ImagesSent += 1
         TImagesSent += 1
@@ -147,33 +137,24 @@ def RunMessage():
             TWordsSent += 1
             ctypes.windll.kernel32.SetConsoleTitleW(f"Sending Messages... Images Sent [{TImagesSent}], Words Sent [{TWordsSent}] [May Be Inacurate Due To Ratelimiting.] -- [Pause Time [{TTTime}]]")
             print(f'{w}{color3}[{w}Discord-XP{color3}] Sent WORDS{w}: {color3}[{w}{TWordsSent}{color3}]')
-            if WordsSent == round(random.uniform(5, 10), 1):
+            if WordsSent == round(random.uniform(50, 59), 3):
                 WordsSent=0
                 break
         
-    
+    ""
 
 
-def getListOfFiles(dirName):
-    listOfFile = os.listdir(dirName)
-    allFiles = list()
-    for entry in listOfFile:
-        fullPath = os.path.join(dirName, entry)
-        if os.path.isdir(fullPath):
-            allFiles = allFiles + getListOfFiles(fullPath)
-        else:
-            allFiles.append(fullPath)
-                
-    return allFiles        
+def getPhrases():
+    with open('txt/phrases.txt') as file:
+        while (line := file.readline().rstrip()):
+            phrases_Content.append(line)
+    print(f"{w}{w}{color3}[{w}Discord-XP{color3}]{w}:{color3}[{w}UpdatePhrases{color3}] Completed! Everything is up to date. ") 
+
 
 def getFiles(): 
-
-    my_file = open("images.txt", "w")
-    dirName = 'memes/';
-    listOfFiles = getListOfFiles(dirName)
-    for elem in listOfFiles:
-        my_file.writelines(elem + '\n')
-    print(f"{c}[{w}Discord-XP{c}] Completed! View in [{w}images.txt{c}]") 
+    for filename in os.listdir("./memes"):
+        images_Content.append(filename)
+    print(f"{w}{w}{color3}[{w}Discord-XP{color3}]{w}:{color3}[{w}UpdateImages{color3}] Completed! Everything is up to date.") 
 
 def colored(r, g, b, text):
     return "\033[38;2;{};{};{}m{} \033[38;2;255;255;255m".format(r, g, b, text)
@@ -182,7 +163,6 @@ def centerize(l:list,w:int)->str:
     padding =  ' '*(w//2)
     parts = [ padding[0: (w-len(p))//2+1]+p for p in l]
     return '\n'.join(parts)
-
 
 
 def Menu():
@@ -203,13 +183,13 @@ def Menu():
     Step5 = Step4.replace("║", f"{color1}║")
     Step6 = Step5.replace("╔", f"{color1}╔")
     LastOutput = Step6.replace("█", f"{color2}█")
-    os_size = os.get_terminal_size().columns
-    print(centerize(LastOutput.splitlines(),int(os_size)))
+    print(LastOutput)
 
 def Settings():
     FFirstText = f"""
 {color1}┌─────────{color1}───────────────────────────{color3}────────────────────────────────────┐
-{color1}[{w}1{color1}]  {w}Get Images                                               Run Bot  {color3}[{w}2{color3}]
+{color1}[{w}1{color1}]  {w}Update Images                                            Run Bot  {color3}[{w}3{color3}]
+{color1}[{w}2{color1}]  {w}Update Phrases                                              Exit  {color3}[{w}4{color3}]
 {color1}└─────────{color1}───────────────────────────{color3}────────────────────────────────────┘
     """
     print(FFirstText)
@@ -217,11 +197,23 @@ def Settings():
 
     if option_choice == "1":
         getFiles()
-    elif option_choice == "2":
+        pause.seconds(1)
+        cls()
+        Menu()
+        Settings()
+    if option_choice == "2":
+        getPhrases()
+        pause.seconds(1)
+        cls()
+        Menu()
+        Settings()
+    if option_choice == "3":
         cls()
         RunMessage()
+    elif option_choice == "4":
+        exit()
     else:
-        print(f'{w}{color3}[{w}Discord-XP{color3}] Invalid Choice!')
+        print('{w}{color3}[{w}Discord-XP{color3}] Invalid.')
         pause.seconds(1)
         cls()
         Menu()
