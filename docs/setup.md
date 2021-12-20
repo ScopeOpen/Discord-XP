@@ -33,3 +33,6 @@ Once installed, if you used git open a cmd prompt and do "cd Discord-xp" if not 
 `10` **Tenth:** Always choose the 1,2,3 choices before starting the bot or it won't work.
 
 **All Support In Issues**
+
+How To Change Theme: [All Color Themes](https://github.com/ScopeOpen/Discord-XP)
+Return To Main Page: [Return](https://github.com/ScopeOpen/Discord-XP) 
