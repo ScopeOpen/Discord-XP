@@ -13,6 +13,8 @@ A great tool to help those who love getting xp to be on the top of all level lea
 
 `4` **Fourth:** Paste that ID **ONLY ONE!** into the brackets of the memes section in `config.json` Like in the provided screenshot
 
+`5` **Fith:** This last part is for the cool-down of sending messages. Unless you know the time of the xp cool-down of the server dont replace the numbers.
+
 ![ConfigJsonn](https://cdn.discordapp.com/attachments/922450952538169384/922451707223498812/unknown.png)
 
 ### Help & Support
