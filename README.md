@@ -9,8 +9,11 @@ A great tool to help those who love getting xp to be on the top of all level lea
 
 ![ConfigJson](https://cdn.discordapp.com/attachments/922450952538169384/922451727247093780/unknown.png)
 
-`3` **Third:** Make sure to save and keep config.json open. Go to your desired discord server and copy the id of the memes/media channel or a channel you'd like to send your gif/images in [Get An ID From Discord Channel]()
+`3` **Third:** Make sure to save and keep config.json open. Go to your desired discord server and copy the id of the memes/media channel or a channel you'd like to send your gif/images in [Get An ID From Discord Channel](https://www.remote.tools/remote-work/how-to-find-discord-id)
 
+`4` **Fourth:** Paste that ID **ONLY ONE!** into the brackets of the memes section in `config.json` Like in the provided screenshot
+
+![ConfigJsonn](https://cdn.discordapp.com/attachments/922450952538169384/922451707223498812/unknown.png)
 
 ### Help & Support
 Simply ask on the issues page and I'll assist you as quick as I can 
