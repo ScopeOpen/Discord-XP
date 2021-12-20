@@ -1,0 +1,4 @@
+discum==1.1.0
+colorama==0.4.4
+opencv-python==4.5.4.60
+pause==0.3
