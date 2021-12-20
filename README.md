@@ -4,7 +4,10 @@ A great tool to help those who love getting xp to be on the top of all level lea
 
 ## How To Setup
 `1` **First:** You will need your discord token to run this SelfBot/XP-Grinder. You can either do the traditional way [Get Your Discord Token!](https://www.youtube.com/watch?v=YEgFvgg7ZPI). Or use my script: [Get Your Discord Token (BY ME)](https://github.com/ScopeOpen/Get-Token)
-`2` **Second:** Once you have your discord token you need to input it in the token section of `config.json` ![ConfigJson](https://night.eats.dog/🧥🙀🚂🏯)
+
+`2` **Second:** Once you have your discord token you need to input it in **brackets ""** of the token section of `config.json` like in the provided screenshot.
+
+![ConfigJson](https://cdn.discordapp.com/attachments/922450952538169384/922451727247093780/unknown.png)
 
 ### Help & Support
 Simply ask on the issues page and I'll assist you as quick as I can 
