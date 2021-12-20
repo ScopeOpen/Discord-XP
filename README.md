@@ -2,7 +2,10 @@
 <img src = "https://img.shields.io/badge/Made%20Using-Python-9cf?style=flat-square"><br>
 A great tool to help those who love getting xp to be on the top of all level leaderboards but just can't compete with that one **no-lifer that doesn't stop talking on discord.** This is going to be the most optimised, smart & customisable xp farmers to this day.
 
-## How To Setup
+### Docs
+ > [Setup Discord-XP](https://github.com/ScopeOpen/Discord-XP/blob/main/docs/setup.md)
+    
+ > [Discord-XP Themes](https://github.com/ScopeOpen/Discord-XP/blob/main/docs/themes.md)
 
 ### Help & Support
 Simply ask on the issues page and I'll assist you as quick as I can 
