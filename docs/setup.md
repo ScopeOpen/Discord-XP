@@ -4,6 +4,8 @@ Install Python 3.9 [Python3.9](https://www.python.org/downloads/release/python-3
 
 Install Git [StableGit](https://git-scm.com/downloads): Used to download this repository
 
+For easier access install the GitHub app [Github](https://desktop.github.com/): Not Required
+
 `1` **First:** You will need your discord token to run this SelfBot/XP-Grinder. You can either do the traditional way [Get Your Discord Token!](https://www.youtube.com/watch?v=YEgFvgg7ZPI). Or use my script: [Get Your Discord Token (BY ME)](https://github.com/ScopeOpen/Get-Token)
 
 `2` **Second:** Once you have your discord token you need to input it in **brackets ""** of the token section of `config.json` like in the provided screenshot.
