@@ -12,7 +12,6 @@ Simply ask on the issues page and I'll assist you as quick as I can
 
 ### Thanks To
 **DisCum by Merubokkusu.** An amazing API Wrapper that I will be using! - [DisCum](https://github.com/Merubokkusu/Discord-S.C.U.M)
-**Lodisus** Gave me a great idea for the design, much better than any of my ideas! - [Lodisus](https://github.com/Lodisus)
 
 ### To Do
 
